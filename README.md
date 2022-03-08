@@ -44,3 +44,6 @@ Son funciones puras que se encargan de ejecutar el trabajo que se pidió previam
 
 [https://redux-toolkit.js.org/usage/usage-guide#simplifying-reducers-with-createreducer]
 
+### Utilizando useDispatch desde la UI
+
+El uso es simple, se debe importar el hook useDisptach que recibe el action que vamos a usar, en ese caso el qe creamos con redux toolkit
