@@ -47,3 +47,10 @@ Son funciones puras que se encargan de ejecutar el trabajo que se pidió previam
 ### Utilizando useDispatch desde la UI
 
 El uso es simple, se debe importar el hook useDisptach que recibe el action que vamos a usar, en ese caso el qe creamos con redux toolkit
+
+### Redux middleware
+
+Redux posee la posibilidad de usar software intermedio entre las actions y reducers para poder trabajar con funciones asincronas. Si bien hay más de una opción, el estándar y que además viene preconfigurado es redux thunk.
+
+- toolkit
+[https://redux-toolkit.js.org/api/createAsyncThunk]
