@@ -40,3 +40,7 @@ Son funciones puras que se encargan de ejecutar el trabajo que se pidió previam
 
 [https://redux-toolkit.js.org/usage/usage-guide#writing-action-creators]
 
+### Creando primer reducer
+
+[https://redux-toolkit.js.org/usage/usage-guide#simplifying-reducers-with-createreducer]
+
