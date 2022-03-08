@@ -21,4 +21,10 @@ store.disptatch({
   payload: {} || [] || undefined,
 });
 
-A través del disptach se ejecutan las actions, donde type seria la key y payload la información enviada
+A través del disptach se ejecutan la acción la que recibe como parametro, donde type seria la key y payload la información enviada
+
+## Redux reducers
+
+Son funciones puras que se encargan de ejecutar el trabajo que se pidió previamente con un action, actualizar la información del store con el payload por ejemplo
+
+[https://es.redux.js.org/docs/basico/reducers.html]
