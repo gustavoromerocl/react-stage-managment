@@ -23,8 +23,20 @@ store.disptatch({
 
 A través del disptach se ejecutan la acción la que recibe como parametro, donde type seria la key y payload la información enviada
 
-## Redux reducers
+### Redux reducers
 
 Son funciones puras que se encargan de ejecutar el trabajo que se pidió previamente con un action, actualizar la información del store con el payload por ejemplo
 
 [https://es.redux.js.org/docs/basico/reducers.html]
+
+### Creando primer action
+
+#### Pasos para conectar un componente
+
+- Definir y crear actions
+- Definir y crear reducers
+- Conectar reducer a la store
+- Usar el dispatch dentro del componente
+
+[https://redux-toolkit.js.org/usage/usage-guide#writing-action-creators]
+
