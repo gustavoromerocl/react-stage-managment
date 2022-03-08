@@ -1,16 +1,18 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useHistory } from "react-router";
 import { useDispatch } from "react-redux";
-import { checkLogin } from "../../redux/actions/login";
+import { checkIfUserIsAuth } from "../../redux/actions/login";
+
 
 export default function Login() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   const history = useHistory();
-  const disptach = useDispatch();
+  const dispatch = useDispatch();
 
-  const checkIfUserIsAuthRef = useRef();
+
+/*   const checkIfUserIsAuthRef = useRef();
 
   const checkIfUserIsAuth = () => {
     disptach(checkLogin({flag: true}));
@@ -22,10 +24,10 @@ export default function Login() {
     }
   };
 
-  checkIfUserIsAuthRef.current = checkIfUserIsAuth;
+  checkIfUserIsAuthRef.current = checkIfUserIsAuth; */
 
   useEffect(() => {
-    checkIfUserIsAuthRef?.current()?.catch(null);
+    dispatch(checkIfUserIsAuth());
   }, []);
 
   const handleSubmitForm = (evt) => {

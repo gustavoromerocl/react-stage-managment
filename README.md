@@ -54,3 +54,6 @@ Redux posee la posibilidad de usar software intermedio entre las actions y reduc
 
 - toolkit
 [https://redux-toolkit.js.org/api/createAsyncThunk]
+
+### Creando método thunk y actualizando reducers
+
