@@ -1,1 +1,3 @@
 # react-stage-managment
+
+## Redux
