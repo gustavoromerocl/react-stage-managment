@@ -1,8 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useHistory } from "react-router";
 import { useDispatch , useSelector, shallowEqual } from "react-redux";
-import { checkIfUserIsAuth } from "../../redux/actions/login";
-import {isCheckingAuthSel, isAuthSel} from "../../redux/selectors"
+import { checkIfUserIsAuth, submitLogin } from "../../redux/actions/login";
+import {
+  isCheckingAuthSel, 
+  isAuthSel,
+  isSendingAuthFormSel,
+  isSuccessLoginSel
+} from "../../redux/selectors"
 
 export default function Login() {
   const [name, setName] = useState("");
@@ -15,6 +20,9 @@ export default function Login() {
   //ShallowEqual comprueba que el valor solicitado al store contenga cambios, de esta forma solo re renderiza si hay cambios en el reducer
   const isAuth = useSelector(isAuthSel, shallowEqual);
   const isCheckingAuth = useSelector(isCheckingAuthSel, shallowEqual);
+  const isSendingAuthForm = useSelector(isSendingAuthFormSel, shallowEqual);
+  const isSuccessLogin = useSelector(isSuccessLoginSel, shallowEqual);
+
 
   useEffect(() => {
     dispatch(checkIfUserIsAuth());
@@ -26,21 +34,23 @@ export default function Login() {
     }
   }, [isAuth]);
 
+  useEffect(() => {
+    if(isSuccessLogin){
+      history.push("/search");
+    }
+  }, [isSuccessLogin])
+
   const handleSubmitForm = (evt) => {
     evt.preventDefault();
   
     if (name?.length && email?.length) {
-      localStorage.setItem("@superhero-isAuth", "true");
-      localStorage.setItem("@superhero-data", JSON.stringify({
-        name,
-        email
-      }));
+      dispatch(submitLogin(name, email));
 
-      history.push("/search");
+      //history.push("/search");
     }
   };
 
-  if (isCheckingAuth) {
+  if (isCheckingAuth || isSendingAuthForm) {
     return <p className="text-center mt-5">Cargando...</p>;
   }
 
