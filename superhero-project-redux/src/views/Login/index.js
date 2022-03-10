@@ -1,34 +1,26 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useHistory } from "react-router";
-import { useDispatch } from "react-redux";
+import { useDispatch , useSelector } from "react-redux";
 import { checkIfUserIsAuth } from "../../redux/actions/login";
 
 
 export default function Login() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [isLoading, setIsLoading] = useState(true);
   const history = useHistory();
   const dispatch = useDispatch();
-
-
-/*   const checkIfUserIsAuthRef = useRef();
-
-  const checkIfUserIsAuth = () => {
-    disptach(checkLogin({flag: true}));
-    const isAuth = localStorage.getItem("@superhero-isAuth")?.length > 0;
-    if (isAuth) {
-      history.push("/search");
-    } else {
-      setIsLoading(false);
-    }
-  };
-
-  checkIfUserIsAuthRef.current = checkIfUserIsAuth; */
+  //useSelector es usado para acceder a la información en el state de redux
+  const {isCheckingAuth, isAuth} = useSelector((state) => state.loginReducer);
 
   useEffect(() => {
     dispatch(checkIfUserIsAuth());
   }, []);
+
+  useEffect(() => {
+    if(isAuth){
+      history.push("/search");
+    }
+  }, [isAuth]);
 
   const handleSubmitForm = (evt) => {
     evt.preventDefault();
@@ -44,7 +36,7 @@ export default function Login() {
     }
   };
 
-  if (isLoading) {
+  if (isCheckingAuth) {
     return <p className="text-center mt-5">Cargando...</p>;
   }
 

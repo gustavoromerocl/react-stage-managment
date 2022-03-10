@@ -57,3 +57,8 @@ Redux posee la posibilidad de usar software intermedio entre las actions y reduc
 
 ### Creando método thunk y actualizando reducers
 
+Sirve para realizar operaciones asincronas sobre el state
+
+### Implementando useSelector y obteniendo valores de la store
+
+Mediante el uso de useSelector es posible obtener los valores guardados en nuestra store de redux

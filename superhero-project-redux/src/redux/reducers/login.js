@@ -1,7 +1,13 @@
 import { createReducer } from "@reduxjs/toolkit";
 import { checkingAuth, completedAuth, errorAuth } from "../actions/login";
 
-const loginReducer = createReducer([], builder => {
+const initialState = {
+  isCheckingAuth: false,
+  isAuth: false,
+  error: undefined
+};
+
+const loginReducer = createReducer(initialState, builder => {
   builder.addCase(checkingAuth.toString(), (state, action) => {
     return {
       ...state,
@@ -11,7 +17,7 @@ const loginReducer = createReducer([], builder => {
   .addCase(completedAuth.toString(), (state, action) => {
     return {
       ...state,
-      isAuth: action.isAuth,
+      isAuth: action.payload.isAuth,
       isCheckingAuth: false
     }
   })
