@@ -62,3 +62,8 @@ Sirve para realizar operaciones asincronas sobre el state
 ### Implementando useSelector y obteniendo valores de la store
 
 Mediante el uso de useSelector es posible obtener los valores guardados en nuestra store de redux
+
+### Aprendiendo a usar selectores
+
+[https://redux-toolkit.js.org/api/createSelector]
+Siguiendo las buenas practicas se recomienda unificar en un archivo los selectores, de esta forma se evita que al escalar el proyecto se generen problemas de rendimiento ya que la información de obtendra de las constantes declaradas en dicho archivo. Además con el uso de shallowEqual le indicamos a redux que actualice solo si detecta cambios en el state

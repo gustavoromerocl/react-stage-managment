@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useHistory } from "react-router";
-import { useDispatch , useSelector } from "react-redux";
+import { useDispatch , useSelector, shallowEqual } from "react-redux";
 import { checkIfUserIsAuth } from "../../redux/actions/login";
-
+import {isCheckingAuthSel, isAuthSel} from "../../redux/selectors"
 
 export default function Login() {
   const [name, setName] = useState("");
@@ -10,7 +10,11 @@ export default function Login() {
   const history = useHistory();
   const dispatch = useDispatch();
   //useSelector es usado para acceder a la información en el state de redux
-  const {isCheckingAuth, isAuth} = useSelector((state) => state.loginReducer);
+  /* const {isCheckingAuth, isAuth} = useSelector((state) => state.loginReducer); */
+
+  //ShallowEqual comprueba que el valor solicitado al store contenga cambios, de esta forma solo re renderiza si hay cambios en el reducer
+  const isAuth = useSelector(isAuthSel, shallowEqual);
+  const isCheckingAuth = useSelector(isCheckingAuthSel, shallowEqual);
 
   useEffect(() => {
     dispatch(checkIfUserIsAuth());
