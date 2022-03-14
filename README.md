@@ -67,3 +67,7 @@ Mediante el uso de useSelector es posible obtener los valores guardados en nuest
 
 [https://redux-toolkit.js.org/api/createSelector]
 Siguiendo las buenas practicas se recomienda unificar en un archivo los selectores, de esta forma se evita que al escalar el proyecto se generen problemas de rendimiento ya que la información de obtendra de las constantes declaradas en dicho archivo. Además con el uso de shallowEqual le indicamos a redux que actualice solo si detecta cambios en el state
+
+### Implementando redux en resultados, implementando llamada a la API y disparando actions
+
+Una practica interesante desarrollada en esta section fue la de usar axios.create y centralizar la información en una carpeta api, el resto fueron cosas que ya hemos visto durante el curso.

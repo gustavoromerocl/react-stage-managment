@@ -1,20 +1,19 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import axios from "axios";
+import { useDispatch } from "react-redux";
 import ErrorComponent from "./components/ErrorComponent";
 import ResultsList from "./components/ResultsList";
 import NoResults from "./components/NoResults";
 import Header from "../../components/Header";
 import Spinner from "../../components/Spinner";
+import { fetchSuperheroes } from "../../redux/actions/superhero";
 
 export default function Results() {
   const { searchText } = useParams();
-  const [isLoading, setIsLoading] = useState(true);
-  const [results, setResults] = useState([]);
-  const [error, setError] = useState();
-  const fetchResultsRef = useRef();
+  const dispatch = useDispatch();
 
-  const fetchResults = useCallback(async () => {
+
+/*   const fetchResults = useCallback(async () => {
     try {
       setError();
       setResults([]);
@@ -27,12 +26,11 @@ export default function Results() {
     } finally {
       setIsLoading(false);
     }
-  }, [setError, setResults, setIsLoading, searchText]);
+  }, [setError, setResults, setIsLoading, searchText]); */
 
-  fetchResultsRef.current = fetchResults;
 
   useEffect(() => {
-    fetchResultsRef.current()?.catch(null);
+    dispatch(fetchSuperheroes(searchText));
   }, []);
 
   return (
@@ -40,10 +38,10 @@ export default function Results() {
       <Header />
       <div className="px-3 pb-2 mt-12">
         <h2 className="text-xl font-bold">Resultados para: {searchText}</h2>
-        {isLoading && <Spinner />}
+{/*         {isLoading && <Spinner />}
         <ErrorComponent error={error} />
         <ResultsList data={results} />
-        {!isLoading && !results?.length && <NoResults />}
+        {!isLoading && !results?.length && <NoResults />} */}
       </div>
     </div>
   );
