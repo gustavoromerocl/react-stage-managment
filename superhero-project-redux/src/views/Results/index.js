@@ -1,33 +1,24 @@
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector, shallowEqual } from "react-redux";
 import ErrorComponent from "./components/ErrorComponent";
 import ResultsList from "./components/ResultsList";
 import NoResults from "./components/NoResults";
 import Header from "../../components/Header";
 import Spinner from "../../components/Spinner";
 import { fetchSuperheroes } from "../../redux/actions/superhero";
+import {
+  isFetichingSuperheroesSel,
+  superheroesErrorSel,
+  superheroesSel
+} from "../../redux/selectors";
 
 export default function Results() {
   const { searchText } = useParams();
   const dispatch = useDispatch();
-
-
-/*   const fetchResults = useCallback(async () => {
-    try {
-      setError();
-      setResults([]);
-
-      const { data } = await axios.get(`https://superheroapi.com/api.php/10223232565340348/search/${searchText}`);
-
-      setResults(data?.results);
-    } catch (error) {
-      setError(error);
-    } finally {
-      setIsLoading(false);
-    }
-  }, [setError, setResults, setIsLoading, searchText]); */
-
+  const isFetchingSuperheroes = useSelector(isFetichingSuperheroesSel, shallowEqual);
+  const superheroes = useSelector(superheroesSel, shallowEqual);
+  const superheroesError = useSelector(superheroesErrorSel, shallowEqual);
 
   useEffect(() => {
     dispatch(fetchSuperheroes(searchText));
@@ -38,10 +29,10 @@ export default function Results() {
       <Header />
       <div className="px-3 pb-2 mt-12">
         <h2 className="text-xl font-bold">Resultados para: {searchText}</h2>
-{/*         {isLoading && <Spinner />}
-        <ErrorComponent error={error} />
-        <ResultsList data={results} />
-        {!isLoading && !results?.length && <NoResults />} */}
+        {isFetchingSuperheroes && <Spinner />}
+        <ErrorComponent error={superheroesError} />
+        <ResultsList data={superheroes} />
+        {!isFetchingSuperheroes && !superheroes?.length && <NoResults />}
       </div>
     </div>
   );

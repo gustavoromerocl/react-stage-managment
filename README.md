@@ -73,3 +73,7 @@ Siguiendo las buenas practicas se recomienda unificar en un archivo los selector
 Una practica interesante desarrollada en esta section fue la de usar axios.create y centralizar la información en una carpeta api, el resto fueron cosas que ya hemos visto durante el curso.
 
 ### Implementando redux en resultados, creando superhero reducer
+
+### Implementando reduc en resultados, creando selectores y mostrabdo resultados
+
+En esta section creamos los selectores del reducer para llevarlos a la vista y poder utilizarlos.
