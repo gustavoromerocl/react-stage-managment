@@ -71,3 +71,5 @@ Siguiendo las buenas practicas se recomienda unificar en un archivo los selector
 ### Implementando redux en resultados, implementando llamada a la API y disparando actions
 
 Una practica interesante desarrollada en esta section fue la de usar axios.create y centralizar la información en una carpeta api, el resto fueron cosas que ya hemos visto durante el curso.
+
+### Implementando redux en resultados, creando superhero reducer
