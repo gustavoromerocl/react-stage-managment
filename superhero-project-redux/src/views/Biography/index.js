@@ -6,6 +6,8 @@ import Bio from "./components/Bio";
 import BioImage from "./components/BioImage";
 import Spinner from "../../components/Spinner";
 import Header from "../../components/Header";
+import { fetchBio } from "../../redux/actions/superhero";
+import { useDispatch, useSelector, shallowEqual } from "react-redux";
 
 export default function Biography() {
   const { id } = useParams();
@@ -16,39 +18,11 @@ export default function Biography() {
   const [bioWork, setBioWork] = useState();
   const [bioConnections, setBioConnections] = useState();
   const [bioPowerStats, setBioPowerStats] = useState();
+  const disptach = useDispatch();
 
-  const fetchBioRef = useRef(); 
-
-  const fetchBio = useCallback(async () => {
-    try {
-      const bioData = await axios.get(`https://superheroapi.com/api.php/10223232565340348/${id}/biography`);
-      const bioPhoto = await axios.get(`https://superheroapi.com/api.php/10223232565340348/${id}/image`);
-      const bioWorkRes = await axios.get(`https://superheroapi.com/api.php/10223232565340348/${id}/work`);
-      const bioConnectionsRes = await axios.get(`https://superheroapi.com/api.php/10223232565340348/${id}/connections`);
-      const bioPowerStatsRes = await axios.get(`https://superheroapi.com/api.php/10223232565340348/${id}/powerstats`);
-
-      setBio(bioData.data);
-      setBioImage(bioPhoto.data);
-      setBioWork(bioWorkRes.data);
-      setBioConnections(bioConnectionsRes.data);
-      setBioPowerStats(bioPowerStatsRes.data);
-
-    } catch (error) {
-      setError(error);
-      setBio(null);
-      setBioImage(null);
-      setBioWork(null);
-      setBioConnections(null);
-      setBioPowerStats(null);
-    } finally {
-      setIsLoading(false);
-    }
-  }, [id, setBio, setBioImage, setBioWork, setBioConnections, setBioPowerStats, setError, setIsLoading]);
-
-  fetchBioRef.current = fetchBio;
 
   useEffect(() => {
-    id && fetchBioRef.current()?.catch(null);
+    id && disptach(fetchBio(id))
   }, [id]);
 
   const biography = useMemo(() => ({ 

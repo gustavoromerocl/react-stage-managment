@@ -78,6 +78,10 @@ Una practica interesante desarrollada en esta section fue la de usar axios.creat
 
 En esta section creamos los selectores del reducer para llevarlos a la vista y poder utilizarlos.
 
-### Impĺementando redux biography actualizando info en la store
+### Impĺementando redux biography creando actions y reducers
 
 Se configurana actions y reducer para el componente biography
+
+### Implementando redux en biography - Actualizando info de la store
+
+Se pasan los valores obtenidos de las consultas a la api a la store de redux

@@ -25,10 +25,22 @@ export const startFetchingBio = createAction("START_FETCHING_BIO");
 export const errorFetchingBio = createAction("ERROR_FETCHING_BIO");
 export const successFetchingBio = createAction("SUCCESS_FETCHING_BIO");
 
-export const fetchBio = (id) = async (disptach) => {
+export const fetchBio = (id) => async (dispatch) => {
   try {
-    disptach(startFetchingBio());
-    dispatch(successFetchingBio());
+    dispatch(startFetchingBio());
+
+    const bioData = await apiCall.get(`/${id}/biography`);
+    const bioPhoto = await apiCall.get(`/${id}/image`);
+    const bioWorkRes = await apiCall.get(`/${id}/work`);
+    const bioConnectionsRes = await apiCall.get(`/${id}/connections`);
+    console.log(bioData);
+    //? valida que alla data en primera instancia, ?? en caso de que no exista asigna undefined
+    dispatch(successFetchingBio({
+      bio: bioData.data,
+      photo: bioPhoto.data?.url ?? undefined,
+      work: bioWorkRes.data,
+      connections: bioConnectionsRes.data
+    }));
   }
   catch (error) {
     dispatch(errorFetchingBio(error));

@@ -56,6 +56,10 @@ const superheroReducer = createReducer(initialState, builder => {
     return {
       ...state,
       isFetchingBio: false,
+      bio: action.payload.bio,
+      work: action.payload.work,
+      connections: action.payload.connections,
+      photo: action.payload.photo,
     }
   })
   .addCase(errorFetchingBio.toString(), (state, action) => {
