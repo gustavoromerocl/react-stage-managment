@@ -94,3 +94,7 @@ Se pasan los valores obtenidos de las consultas a la api a la store de redux
 ### Implementando redux en biography - usando reselect pt1
 
 Usando create selector es posible agrupar los selectores que habiamos creado hasta ahora en uno solo aumenta el rendimiento de redux.
+
+### Qué son los slices
+
+[https://redux-toolkit.js.org/api/createslice]
