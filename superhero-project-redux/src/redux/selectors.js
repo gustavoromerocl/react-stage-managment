@@ -13,6 +13,7 @@ export const bioSel = state => state.superheroReducer.bio;
 export const bioPhotoSel = state => state.superheroReducer.photo;
 export const bioWorkSel = state => state.superheroReducer.work;
 export const bioConnectionsSel = state => state.superheroReducer.connections;
+export const isFetchingBioSel = state => state.superheroReducer.isFetchingBio;
 
 export const biographySel = createSelector(
   bioSel,
