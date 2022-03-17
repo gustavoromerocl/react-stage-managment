@@ -90,3 +90,7 @@ Se pasan los valores obtenidos de las consultas a la api a la store de redux
 
 [https://github.com/zalmoxisus/redux-devtools-extension]
 [https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd/related?hl=es]
+
+### Implementando redux en biography - usando reselect pt1
+
+Usando create selector es posible agrupar los selectores que habiamos creado hasta ahora en uno solo aumenta el rendimiento de redux.

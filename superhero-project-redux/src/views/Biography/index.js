@@ -8,38 +8,22 @@ import Spinner from "../../components/Spinner";
 import Header from "../../components/Header";
 import { fetchBio } from "../../redux/actions/superhero";
 import { useDispatch, useSelector, shallowEqual } from "react-redux";
+import { biographySel } from "../../redux/selectors";
 
 export default function Biography() {
   const { id } = useParams();
-  const [bio, setBio] = useState();
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState();
-  const [bioImage, setBioImage] = useState();
-  const [bioWork, setBioWork] = useState();
-  const [bioConnections, setBioConnections] = useState();
-  const [bioPowerStats, setBioPowerStats] = useState();
   const disptach = useDispatch();
+  const biography = useSelector(biographySel)
 
-
+  console.log(biography);
   useEffect(() => {
     id && disptach(fetchBio(id))
   }, [id]);
 
-  const biography = useMemo(() => ({ 
-    bio, 
-    bioWork,
-    connections: bioConnections,
-    powerStats: bioPowerStats 
-  }), [
-    bioWork, 
-    bio,
-    bioConnections,
-    bioPowerStats
-  ]);
 
   return(
     <div>
-      <Header />
+{/*       <Header />
       <div className="px-4 py-3 mt-10">
         {isLoading && <Spinner />}
         {!isLoading && !error && (
@@ -48,7 +32,7 @@ export default function Biography() {
             <Bio {...biography} />
           </>
         )}
-      </div>
+      </div> */}
     </div>
   );
 }
