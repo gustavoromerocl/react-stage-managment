@@ -6,6 +6,6 @@ import superheroReducer from './reducers/superhero';
 export const store = configureStore({
   reducer: {
     loginReducer,
-    superheroReducer
+    superheroReducer,
   },
 })

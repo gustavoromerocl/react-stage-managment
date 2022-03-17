@@ -85,3 +85,8 @@ Se configurana actions y reducer para el componente biography
 ### Implementando redux en biography - Actualizando info de la store
 
 Se pasan los valores obtenidos de las consultas a la api a la store de redux
+
+### Implementando redux en biography - redux devtools
+
+[https://github.com/zalmoxisus/redux-devtools-extension]
+[https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd/related?hl=es]
