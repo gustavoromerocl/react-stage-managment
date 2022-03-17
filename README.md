@@ -77,3 +77,7 @@ Una practica interesante desarrollada en esta section fue la de usar axios.creat
 ### Implementando reduc en resultados, creando selectores y mostrabdo resultados
 
 En esta section creamos los selectores del reducer para llevarlos a la vista y poder utilizarlos.
+
+### Impĺementando redux biography actualizando info en la store
+
+Se configurana actions y reducer para el componente biography

@@ -20,3 +20,17 @@ export const fetchSuperheroes =  (text) => async (dispatch) => {
     dispatch(errorFetchingSuperheroes({ error }));
   }
 } 
+
+export const startFetchingBio = createAction("START_FETCHING_BIO");
+export const errorFetchingBio = createAction("ERROR_FETCHING_BIO");
+export const successFetchingBio = createAction("SUCCESS_FETCHING_BIO");
+
+export const fetchBio = (id) = async (disptach) => {
+  try {
+    disptach(startFetchingBio());
+    dispatch(successFetchingBio());
+  }
+  catch (error) {
+    dispatch(errorFetchingBio(error));
+  }
+}
