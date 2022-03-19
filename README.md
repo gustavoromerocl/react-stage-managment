@@ -104,3 +104,7 @@ Usando create selector es posible agrupar los selectores que habiamos creado has
 ### Qué es un provider
 
 Un provider o proveedor contiene un estado que comparte con los componentes hijos de quien lo consuma o implemente. Una aplicación puede uno o más providers, va a depender de las necesidades en cada caso de uso.
+
+### Qué es un consumer
+
+Un consumer es un componente que se suscribe a un provider para consumir su información.
