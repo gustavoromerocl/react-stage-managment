@@ -98,3 +98,5 @@ Usando create selector es posible agrupar los selectores que habiamos creado has
 ### Qué son los slices
 
 [https://redux-toolkit.js.org/api/createslice]
+
+## CONTEXT API
