@@ -116,3 +116,7 @@ Se crea carpeta context que anidará todos los state managment creados con conte
 ### Consumiendo contexto
 
 Mediante el hook useContext integrado en react es posible usar los contextos creados desde cualquier componente consumidor o que este dentro del provider. Desde el provider es posible enviar variables o constantes e incluso funciones.
+
+### Creando métodos globales en provider
+
+Se traslada todo el código que usa local storage para el inicio de sesión a una función dentro del provider. Se implementa con useCallback para evitar crear más de una instancia de la misma función.

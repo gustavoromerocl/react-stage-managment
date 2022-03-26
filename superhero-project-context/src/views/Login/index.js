@@ -9,14 +9,13 @@ export default function Login() {
   const [isLoading, setIsLoading] = useState(true);
   
   const history = useHistory();
-  const { handleLogin } = useContext(AuthContext);
+  const { onLogin, isAuthenticated } = useContext(AuthContext);
   const checkIfUserIsAuthRef = useRef();
 
-  handleLogin();
 
   const checkIfUserIsAuth = () => {
-    const isAuth = localStorage.getItem("@superhero-isAuth")?.length > 0;
-    if (isAuth) {
+
+    if (isAuthenticated) {
       history.push("/search");
     } else {
       setIsLoading(false);
@@ -33,11 +32,7 @@ export default function Login() {
     evt.preventDefault();
   
     if (name?.length && email?.length) {
-      localStorage.setItem("@superhero-isAuth", "true");
-      localStorage.setItem("@superhero-data", JSON.stringify({
-        name,
-        email
-      }));
+      onLogin(name, email);
 
       history.push("/search");
     }
