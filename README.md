@@ -108,3 +108,7 @@ Un provider o proveedor contiene un estado que comparte con los componentes hijo
 ### Qué es un consumer
 
 Un consumer es un componente que se suscribe a un provider para consumir su información.
+
+### Creando contexto y provider
+
+Se crea carpeta context que anidará todos los state managment creados con context api, en este caso creamos una carpeta para el de autenticación. Dentro de esta creamos un archivo index.js que exporta un objeto creado con create context, el cual es usado y exportado en el archivo Provider.js

@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useHistory } from "react-router";
+import Spinner from "../../components/Spinner"
 
 export default function Login() {
   const [name, setName] = useState("");
@@ -39,7 +40,7 @@ export default function Login() {
   };
 
   if (isLoading) {
-    return <p className="text-center mt-5">Cargando...</p>;
+    return <Spinner />;
   }
 
   return (
