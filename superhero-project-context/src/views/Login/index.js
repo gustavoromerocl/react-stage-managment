@@ -1,14 +1,18 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useContext } from "react";
 import { useHistory } from "react-router";
-import Spinner from "../../components/Spinner"
+import Spinner from "../../components/Spinner";
+import { AuthContext } from "../../context/auth";
 
 export default function Login() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [isLoading, setIsLoading] = useState(true);
+  
   const history = useHistory();
-
+  const { handleLogin } = useContext(AuthContext);
   const checkIfUserIsAuthRef = useRef();
+
+  handleLogin();
 
   const checkIfUserIsAuth = () => {
     const isAuth = localStorage.getItem("@superhero-isAuth")?.length > 0;

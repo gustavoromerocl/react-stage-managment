@@ -112,3 +112,7 @@ Un consumer es un componente que se suscribe a un provider para consumir su info
 ### Creando contexto y provider
 
 Se crea carpeta context que anidará todos los state managment creados con context api, en este caso creamos una carpeta para el de autenticación. Dentro de esta creamos un archivo index.js que exporta un objeto creado con create context, el cual es usado y exportado en el archivo Provider.js
+
+### Consumiendo contexto
+
+Mediante el hook useContext integrado en react es posible usar los contextos creados desde cualquier componente consumidor o que este dentro del provider. Desde el provider es posible enviar variables o constantes e incluso funciones.
