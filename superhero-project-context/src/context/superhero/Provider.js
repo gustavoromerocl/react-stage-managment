@@ -2,6 +2,10 @@ import axios from "axios";
 import { useCallback, useState } from "react";
 import SuperheroContext from ".";
 
+const apiCall = axios.create({
+  baseURL: 'https://superheroapi.com/api.php/10223232565340348'
+});
+
 export default function SuperheroProvider({children}){
   const [isSearching, setIsSearching] = useState();
   const [results, setResults] = useState([]);
@@ -16,7 +20,7 @@ export default function SuperheroProvider({children}){
       setError();
       setResults([]);
 
-      const { data } = await axios.get(`https://superheroapi.com/api.php/10223232565340348/search/${searchText}`);
+      const { data } = await apiCall.get(`/search/${searchText}`);
 
       setResults(data?.results);
     } catch (error) {
@@ -33,10 +37,10 @@ export default function SuperheroProvider({children}){
       setBiography({});
       setIsFetching(true);
 
-      const bio = await axios.get(`https://superheroapi.com/api.php/10223232565340348/${id}/biography`);
-      const bioPhoto = await axios.get(`https://superheroapi.com/api.php/10223232565340348/${id}/image`);
-      const bioWork = await axios.get(`https://superheroapi.com/api.php/10223232565340348/${id}/work`);
-      const connections = await axios.get(`https://superheroapi.com/api.php/10223232565340348/${id}/connections`);
+      const bio = await apiCall.get(`/${id}/biography`);
+      const bioPhoto = await apiCall.get(`/${id}/image`);
+      const bioWork = await apiCall.get(`/${id}/work`);
+      const connections = await apiCall.get(`/${id}/connections`);
 
       setBioPhoto(bioPhoto?.data);
       setBiography({ bio: bio.data, bioWork: bioWork.data, connections: connections.data });

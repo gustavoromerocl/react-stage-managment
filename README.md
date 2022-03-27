@@ -128,3 +128,7 @@ Se aplica state managment de context al componente que arroja los resultados
 ### Aplicando contexto a los demás componentes pt3 (Biography)
 
 Se aplica state managment de context al componente que muestra la biografia
+
+### Validando data y simplificando llamadas con axios
+
+PAra simplificar los endpoints axios nos provee del metodo axios.create() que asigna la url base a una constante.
