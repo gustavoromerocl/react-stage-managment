@@ -120,3 +120,7 @@ Mediante el hook useContext integrado en react es posible usar los contextos cre
 ### Creando métodos globales en provider
 
 Se traslada todo el código que usa local storage para el inicio de sesión a una función dentro del provider. Se implementa con useCallback para evitar crear más de una instancia de la misma función.
+
+### Aplicando contexto a los demás componentes pt1 y pte2 (Results)
+
+Se aplica state managment de context al componente que arroja los resultados
