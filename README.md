@@ -124,3 +124,7 @@ Se traslada todo el código que usa local storage para el inicio de sesión a un
 ### Aplicando contexto a los demás componentes pt1 y pte2 (Results)
 
 Se aplica state managment de context al componente que arroja los resultados
+
+### Aplicando contexto a los demás componentes pt3 (Biography)
+
+Se aplica state managment de context al componente que muestra la biografia
