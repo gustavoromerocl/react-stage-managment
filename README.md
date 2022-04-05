@@ -141,4 +141,17 @@ Investigar useContextSelector libreria aparte de react, memoriza los contextos y
 
 ## Zustand
 
+### Introducción a zustand 
 
+#### Principios de zustand 
+
+- Simple y un-opinionated
+- Hace de los hooks el principal medio de consumo
+- No usar providers en tu proyecto
+
+#### Usos de zustand
+
+Se puede utilizar en react o vanilla js
+
+- State management
+- Configuracion global
