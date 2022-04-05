@@ -138,3 +138,7 @@ PAra simplificar los endpoints axios nos provee del metodo axios.create() que as
 Investigar useContextSelector libreria aparte de react, memoriza los contextos y actualiza el arbol solo si cambia alguno de ellos, mejora el performance de la app para proyectos medianos. En proyectos de grandes con un flujo de la información elevado no es recomendable usar context api.
 
 [https://github.com/dai-shi/use-context-selector]
+
+## Zustand
+
+
