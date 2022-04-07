@@ -155,3 +155,7 @@ Se puede utilizar en react o vanilla js
 
 - State management
 - Configuracion global
+
+### Conciendo zustand
+
+[https://zustand.surge.sh/]
