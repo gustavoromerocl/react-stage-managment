@@ -1,11 +1,23 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useHistory } from "react-router";
+import useLoginStore from "../../zustand/login-store";
 
 export default function Login() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [isLoading, setIsLoading] = useState(true);
   const history = useHistory();
+  const { 
+    isSubmitting, 
+    succesSubmitted, 
+    errorSubmitting,
+    submitLogin
+  } =  useLoginStore((state) => ({
+      isSubmitting: state.isSubmitting,
+      succesSubmitted: state.succesSubmitted,
+      errorSubmitting: state.errorSubmitting,
+      submitLogin: state.submitLogin
+    }));
+
 
   const checkIfUserIsAuthRef = useRef();
 
@@ -13,8 +25,6 @@ export default function Login() {
     const isAuth = localStorage.getItem("@superhero-isAuth")?.length > 0;
     if (isAuth) {
       history.push("/search");
-    } else {
-      setIsLoading(false);
     }
   };
 
@@ -24,21 +34,23 @@ export default function Login() {
     checkIfUserIsAuthRef?.current()?.catch(null);
   }, []);
 
+  useEffect(() => {
+    if (succesSubmitted && !isSubmitting) history.push("/search");
+  }, [succesSubmitted, isSubmitting]);
+
+  useEffect(() =>  {
+    if(!isSubmitting && errorSubmitting) alert("Ha ocurrido un error inesperado, intentalo de nuevo más tarde")
+  }, [errorSubmitting, isSubmitting])
+
   const handleSubmitForm = (evt) => {
     evt.preventDefault();
   
     if (name?.length && email?.length) {
-      localStorage.setItem("@superhero-isAuth", "true");
-      localStorage.setItem("@superhero-data", JSON.stringify({
-        name,
-        email
-      }));
-
-      history.push("/search");
+      submitLogin(name,email);
     }
   };
 
-  if (isLoading) {
+  if (isSubmitting) {
     return <p className="text-center mt-5">Cargando...</p>;
   }
 
