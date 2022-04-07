@@ -159,3 +159,15 @@ Se puede utilizar en react o vanilla js
 ### Conciendo zustand
 
 [https://zustand.surge.sh/]
+
+### Creando primera store y método en login
+
+npm install zustand --save
+
+[https://github.com/pmndrs/zustand]
+
+- Dentro de la carpeta Zustand se crean las store que vamos a utilizar.
+- Para instancear una store se importa la función create desde el package de zustand
+- Create recibe un callback con el método set como parametro, el callback retorna un objeto que puede contener variables y funciones, con o sin efectos secundarios (async)
+
+
