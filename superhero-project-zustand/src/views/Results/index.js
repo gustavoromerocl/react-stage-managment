@@ -7,11 +7,14 @@ import ResultsList from "./components/ResultsList";
 import NoResults from "./components/NoResults";
 import Header from "../../components/Header";
 import Spinner from "../../components/Spinner";
-import useSuperHeroStore from '../../zustand/superhero-store'
+import useSuperHeroStore from '../../zustand/superhero-store';
+import useLoginStore from '../../zustand/login-store';
 
 
 export default function Results() {
   const { searchText } = useParams();
+  const { } = useLoginStore(state => state);
+
   const { 
     fetchSuperHeroes,
     superheroes,

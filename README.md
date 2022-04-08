@@ -185,6 +185,10 @@ npm install zustand --save
 
 NOTA: ECMA script 6 agrega una funcionalidad muy util para retornar objetos en funciones, por ejemplo como se usa en el hook de zustand en este proyecto. En vez de utilizar la palabra reservada return: () => { return {...} } usamos parentesis directamente y pasamos el object: () => ({...}) haciendo el return de forma implicita.
 
+### ¿Como consumir multiples stores?
+
+Para que un componente pueda consumir más de una store, es tan simple como instanciarla. Es importante el uso de shallow para evitar los multiples render que puedan generar las store funcionando a la vez.
+
 
 
 
