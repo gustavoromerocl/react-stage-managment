@@ -170,4 +170,15 @@ npm install zustand --save
 - Para instancear una store se importa la función create desde el package de zustand
 - Create recibe un callback con el método set como parametro, el callback retorna un objeto que puede contener variables y funciones, con o sin efectos secundarios (async)
 
+### Implementando Zustand en Login
+
+- Utilizando la convención que usan los hooks en react, realizamos el namming al instanciar la store en el componente Login. Las propiedades se obtienen usando destructuring y el estado es actualzado en el callback de la llamada al hook.
+- El método throw new Error dispara un error 
+
+### Implementando zustand en resultados
+
+- Se aplica lo aprendido al componente de resultados
+
+
+
 
