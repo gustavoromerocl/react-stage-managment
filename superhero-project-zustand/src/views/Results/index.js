@@ -1,11 +1,14 @@
 import { useEffect} from "react";
 import { useParams } from "react-router-dom";
+import shallow from "zustand/shallow";
+
 import ErrorComponent from "./components/ErrorComponent";
 import ResultsList from "./components/ResultsList";
 import NoResults from "./components/NoResults";
 import Header from "../../components/Header";
 import Spinner from "../../components/Spinner";
 import useSuperHeroStore from '../../zustand/superhero-store'
+
 
 export default function Results() {
   const { searchText } = useParams();
@@ -19,7 +22,7 @@ export default function Results() {
     superheroes: state.superheroes,
     isFetchingSuperHeroes: state.isFetchingSuperHeroes,
     fetchSuperheroesError: state.fetchSuperheroesError
-  }));
+  }), shallow);
 
   useEffect(() => {
     fetchSuperHeroes(searchText);

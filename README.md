@@ -179,6 +179,14 @@ npm install zustand --save
 
 - Se aplica lo aprendido al componente de resultados
 
+### Implementando shallow de zustand
+
+- Shallow es una utilidad que nos ofrece zustand para mejorar el performans y re renderizado de nuestra aplicación, funciona revisando que las keys en donde se este utilizando hayan cambiado su valor.
+
+NOTA: ECMA script 6 agrega una funcionalidad muy util para retornar objetos en funciones, por ejemplo como se usa en el hook de zustand en este proyecto. En vez de utilizar la palabra reservada return: () => { return {...} } usamos parentesis directamente y pasamos el object: () => ({...}) haciendo el return de forma implicita.
+
+
+
 
 
 
