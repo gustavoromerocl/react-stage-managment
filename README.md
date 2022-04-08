@@ -189,7 +189,9 @@ NOTA: ECMA script 6 agrega una funcionalidad muy util para retornar objetos en f
 
 Para que un componente pueda consumir más de una store, es tan simple como instanciarla. Es importante el uso de shallow para evitar los multiples render que puedan generar las store funcionando a la vez.
 
+### Usando Zustand fuera de componentes
 
+La instancia del hook contiene métodos que podemos usar para manipular directamente el estado sin necesidad de destructurarlo en el componente. En este caso usamos getState y setState, pero la librería cuenta con más métodos.
 
 
 

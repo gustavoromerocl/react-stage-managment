@@ -10,10 +10,11 @@ import Spinner from "../../components/Spinner";
 import useSuperHeroStore from '../../zustand/superhero-store';
 import useLoginStore from '../../zustand/login-store';
 
+useLoginStore.setState({isSubmitting: true});
 
 export default function Results() {
   const { searchText } = useParams();
-  const { } = useLoginStore(state => state);
+/*   const { } = useLoginStore(state => state); */
 
   const { 
     fetchSuperHeroes,
@@ -26,6 +27,9 @@ export default function Results() {
     isFetchingSuperHeroes: state.isFetchingSuperHeroes,
     fetchSuperheroesError: state.fetchSuperheroesError
   }), shallow);
+
+  
+  console.log(useLoginStore.getState().isSubmitting);
 
   useEffect(() => {
     fetchSuperHeroes(searchText);
