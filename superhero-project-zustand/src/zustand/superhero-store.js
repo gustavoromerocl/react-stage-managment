@@ -1,7 +1,8 @@
 import create from 'zustand';
 import apiCall from './api';
+import { devtools } from 'zustand/middleware';
 
-const superheroStore = create((set) => ({
+const superheroStore = create( devtools ((set) => ({
   isFetchingSuperHeroes: false,
   fetchSuperheroesError: undefined,
   superheroes: [],
@@ -18,6 +19,6 @@ const superheroStore = create((set) => ({
       set({ isFetchingSuperHeroes: false });
     }
   }
-}));
+})));
 
 export default superheroStore;

@@ -194,5 +194,10 @@ Para que un componente pueda consumir más de una store, es tan simple como inst
 La instancia del hook contiene métodos que podemos usar para manipular directamente el estado sin necesidad de destructurarlo en el componente. En este caso usamos getState y setState, pero la librería cuenta con más métodos.
 
 
+### ¿ Como usar redux devtools con zustand ?
+
+Para utilizar la herramienta que nos provee redux con zustand, debemos instanciar devtools desde 'zustand/middleware' y envolver la store con dicha instancia, esto permitirá que redux devtools detecte el store de zustand.
+
+
 
 
